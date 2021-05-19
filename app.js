@@ -13,15 +13,44 @@
 
 // This functions should check the integrity of the parameters and pass true/false
 function checkParamsFn(year, month, day) {
+ if (typeof year === "number" && typeof month === "number" 
+    && typeof day === "number")
+   {
+     return true
+   } 
+   else return false
   // Write your code here
 }
 
+
 // This functions checks if the person is or above 18 years of age, return true/false
 function checkOverEighteenFn(year, month, day) {
+  thisYear = new Date().toISOString().slice(0,4)
+  console.log(thisYear)
+  thisMonth = new Date().toISOString().slice(5,7)
+  console.log(thisMonth)
+  thisDay = new Date().toISOString().slice(8,10)
+  console.log(thisDay)
+
+let Agee = thisYear - year
+if (Agee >= 18) {
+  return true
+} else if (Agee === 18 && month > thisMonth) {
+  return false
+} return false
   // Write your code here
 }
 
 function calculateAgeFn(year, month, day) {
+    let Agee = thisYear - year
+checkParamsFn(year , month , day)
+  checkOverEighteenFn(year, month , day)
+if (checkParamsFn(year , month , day) === false || 
+checkOverEighteenFn(year, month , day) === false) {
+  return "error:"
+} else {
+  return Math.round(Agee)
+} 
   // Write your code here
 }
 
